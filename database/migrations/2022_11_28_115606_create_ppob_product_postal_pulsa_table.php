@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ppob.service_v2', function (Blueprint $table) {
+        Schema::create('ppob.product_portalpulsa', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('status');
+            $table->string('provider');
+            $table->string('provider_sub');
+            $table->string('operator');
+            $table->string('operator_sub');
+            $table->string('code');
             $table->string('description');
-            $table->string('contact');
-            $table->double('balance', 15, 2);
-            $table->string('attachment');
-            $table->string('path');
+            $table->double('price', 15, 2);
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppob.service_v2');
+        Schema::dropIfExists('ppob.product_portalpulsa');
     }
 };
