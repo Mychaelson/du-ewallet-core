@@ -1,0 +1,5 @@
+id,bank_id,account_name,account_number,payment_gateway,payment_method_code,is_active,is_virtual
+1,27,NUSA PAY,123123123,PGA,DTBNI,1,1
+2,28,NUSA PAY,124124124,PGA,DTCIMB,1,1
+3,29,NUSA PAY,125125125,PGA,DTPERMATA,1,1
+4,30,NUSA PAY,125125125,PGA,DTMANDIRI,1,1

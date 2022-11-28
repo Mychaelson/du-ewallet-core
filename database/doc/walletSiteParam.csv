@@ -1,0 +1,34 @@
+name,type,group,value
+nusa_user_id,3,Account,9 
+topup_min,3,Topup,10000 
+withdraw_min,3,Withdraw,10000 
+topup_offline_hour,3,Topup,21 
+topup_offline_length,3,Topup,9 
+withdraw_offline_hour,3,Withdraw,22 
+withdraw_offline_length,3,Withdraw,9 
+transfer_min,3,Transfer,1 
+topup_admin_fee,3,Topup,0 
+withdraw_admin_fee,3,Withdraw,10000 
+transfer_admin_fee,3,Transfer,0 
+ncash_days_expires,3,NCash,180 
+voucher_amount_min,3,Voucher,10000 
+topup_min_agent,3,Voucher,10000 
+nusa_promo_user_id,3,Account,13 
+withdraw_max_user,3,Withdraw,10000000 
+withdraw_max_agent,3,Withdraw,50000000 
+withdraw_max_merchant,3,Withdraw,50000000 
+withdraw_max_amount,3,Withdraw,20000000 
+transfer_group_max,3,Transfer,3 
+withdraw_group_max,3,Withdraw,3 
+switching_min,3,Switching,50000 
+switching_max,3,Switching,5000000 
+withdraw_agent_inject_merchant_fee,3,Withdraw Request,2000 
+withdraw_agent_inject_nusapay_fee,3,Withdraw Request,0 
+withdraw_max_wallet_emoney,3,Withdraw,10000000 
+withdraw_max_wallet_payroll,3,Withdraw,25000000 
+withdraw_max_wallet_merchant,3,Withdraw,25000000 
+nusa_user_merchant_id,3,Account,44 
+nusa_promo_user_merchant_id,3,Account,2 
+nusa_ppob_merchant_id,3,Account,1 
+otp_email_wd_amount,3,Withdraw,3000000000 
+otp_email_purchase_amount,3,Payment,3000000000000 

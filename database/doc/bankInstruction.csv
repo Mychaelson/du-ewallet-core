@@ -1,0 +1,5 @@
+id,transaction,method,title,lang,bank_code,bank_id
+1,Topup,VA-BNI,Cara Pembayaran Via BNI Virtual Account,ID,8611,27
+2,Topup,VA-CIMB,Cara Pembayaran Via CIMB Virtual Account,ID,9639,28
+3,Topup,VA-MANDIRI,Cara Isi Saldo dengan Bank Mandiri,ID,7111,29
+4,Topup,VA-PERMATA,Cara Pembayaran Via Permata Bank Virtual Account,ID,89811,30

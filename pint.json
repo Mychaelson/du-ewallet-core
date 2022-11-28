@@ -1,0 +1,7 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "blank_line_before_statement": true,
+        "single_trait_insert_per_statement": true
+    }
+}

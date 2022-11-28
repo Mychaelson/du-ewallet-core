@@ -1,0 +1,93 @@
+id,instruction_id,title,steps,step_type,step_value,
+1,1,ATM BNI,1,text,Masukkan kartu dan pin ATM Anda,ID
+2,1,ATM BNI,2,text,Pilih Menu Lainnya,ID
+3,1,ATM BNI,3,text,Pilih Transfer,ID
+4,1,ATM BNI,4,text,Pilih Rekening Tabungan,ID
+5,1,ATM BNI,5,text,Pilih Ke Rekening BNI,ID
+6,1,ATM BNI,6,text,Masukkan 4 angka kode perusahaan untuk Yamipay: 8611 dan Nomor Handphone yang terdaftar di akun Yamipay Anda (Contoh: 8611-08123456789),ID
+7,1,Mobile Banking BNI,1,text,Akses BNI Mobile Banking melalui handphone,ID
+8,1,Mobile Banking BNI,2,text,Masukkan User ID dan password,ID
+9,1,Mobile Banking BNI,3,text,Pilih menu Transfer,ID
+10,1,Mobile Banking BNI,4,text,"Pilih Antar Rekening BNI, lalu pilih Input Rekening Baru",ID
+11,1,Mobile Banking BNI,5,text,Masukkan 4 angka kode perusahaan untuk Yamipay: 8611 dan Nomor Handphone yang terdaftar di akun Yamipay Anda (Contoh: 8611-08123456789),ID
+12,1,Mobile Banking BNI,6,text,Cek detail pembayaran dan masukkan password mobile banking Anda,ID
+13,1,iBank Personal,1,text,Akses ibank.bni.co.id,ID
+14,1,iBank Personal,2,text,Masukkan User ID dan password,ID
+15,1,iBank Personal,3,text,"Klik menu Transfer, lalu pilih Tambah Rekening Favorit. Jika menggunakan desktop untuk menambah rekening, pada menu Transaksi klik Info & Administrasi Transfer. Pilih Atur Rekening Tujuan, lalu pilih Tambah Rekening Tujuan",ID
+16,1,iBank Personal,4,text,Masukkan 4 angka kode perusahaan untuk Yamipay: 8611 dan Nomor Handphone yang terdaftar di akun Yamipay Anda (Contoh: 8611-08123456789),ID
+17,1,iBank Personal,5,text,Masukkan Kode Otentikasi Token. Nomor rekening tujuan berhasil ditambahkan,ID
+18,1,iBank Personal,6,text,"Kembali ke menu Transfer. Pilih Transfer Antar Rekening BNI, lalu pilih rekening tujuan",ID
+19,1,iBank Personal,7,text,"Pilih Rekening Debit, lalu tentukan jumlah pembayaran",ID
+20,1,iBank Personal,8,text,Masukkan Kode Otentikasi Token,ID
+21,1,iBank Personal,9,text,Anda akan menerima notifikasi bahwa transaksi berhasil,ID
+22,1,SMS Banking,1,text,Buka aplikasi SMS Banking BNI,ID
+23,1,SMS Banking,2,text,Pilih menu Transfer,ID
+24,1,SMS Banking,3,text,Pilih menu Transfer rekening BNI,ID
+25,1,SMS Banking,4,text,Masukkan 4 angka kode perusahaan untuk Yamipay: 8611 dan Nomor Handphone yang terdaftar di akun Yamipay Anda (Contoh: 8611-08123456789),ID
+26,1,SMS Banking,5,text,Masukkan nominal transfer,ID
+27,1,SMS Banking,6,text,"Pilih Proses, kemudian Setuju",ID
+28,1,SMS Banking,7,text,Balas sms dengan mengetik pin sesuai dengan instruksi BNI,ID
+29,1,SMS Banking,8,text,Anda akan menerima notif bahwa transaksi berhasil,ID
+30,1,ATM Bank Lain,1,text,Pilih Transaksi Lainnya,ID
+31,1,ATM Bank Lain,2,text,Pilih Transfer,ID
+32,1,ATM Bank Lain,3,text,Pilih Transfer ke Bank Lain,ID
+33,1,ATM Bank Lain,4,text,Masukkan kode bank tujuan BNI: 009 dan 4 angka kode perusahaan untuk Yamipay: 8611 dan Nomor Handphone yang terdaftar di akun Yamipay Anda (Contoh: 009-8611-08123456789),ID
+34,1,ATM Bank Lain,5,text,Masukkan jumlah pembayaran sesuai tagihan,ID
+35,1,ATM Bank Lain,6,text,"Akan muncul rincian pembayaran Anda. Jika sudah benar, klik 'Ya' untuk melanjutkan",ID
+36,2,ATM CIMB NIAGA,1,text,Masukkan kartu ATM dan PIN kartu CIMB,ID
+37,2,ATM CIMB NIAGA,2,text,Pilih menu TRANSFER > Rekening CIMB Niaga lainnya,ID
+38,2,ATM CIMB NIAGA,3,text,Masukkan kode perusahaan untuk Yamipay: 9639 diikuti dengan nomor telepon yang terdaftar pada aplikasi YAMIPAY (Contoh: 9639 0812XXXXXX) di kolom nomor rekening penerima,ID
+39,2,ATM CIMB NIAGA,4,text,Masukkan jumlah top up yang diinginkan,ID
+40,2,ATM CIMB NIAGA,5,text,Ikuti instruksi untuk menyelesaikan transaksi,ID
+41,2,ATM CIMB NIAGA,6,text,Simpan struk,ID
+42,2,GO-MOBILE,1,text,Log In ke Go-Mobile,ID
+43,2,GO-MOBILE,2,text,Pilih menu TRANSFER > Rekening CIMB Niaga lainnya,ID
+44,2,GO-MOBILE,3,text,Masukkan kode perusahaan untuk YAMIPAY: 9639 diikuti dengan nomor telepon yang terdaftar pada aplikasi YAMIPAY (Contoh: 9639 0812XXXXXX) pada kolom nomor rekening penerima,ID
+45,2,GO-MOBILE,4,text,Masukkan jumlah top up yang diinginkan,ID
+46,2,GO-MOBILE,5,text,Ikuti instruksi untuk menyelesaikan transaksi,ID
+47,2,CIMB CLICKS,1,text,Log In ke CIMB Clicks,ID
+48,2,CIMB CLICKS,2,text,Pilih Menu TRANSFER > Rekening CIMB Niaga lainnya,ID
+49,2,CIMB CLICKS,3,text,Masukkan kode perusahaan untuk YAMIPAY: 9639 diikuti dengan nomor telepon yang terdaftar pada aplikasi YAMIPAY (Contoh: 9639 0812XXXXXX) di kolom rekening penerima,ID
+50,2,CIMB CLICKS,4,text,Masukkan jumlah top up yang diinginkan,ID
+51,2,CIMB CLICKS,5,text,Ikuti instruksi untuk menyelesaikan transaksi,ID
+52,3,ATM MANDIRI,1,text,Masukan kartu ATM Mandiri,ID
+53,3,ATM MANDIRI,2,text,Pilih Bahasa yang dikehendaki,ID
+54,3,ATM MANDIRI,3,text,Masukan PIN kartu ATM Mandiri,ID
+55,3,ATM MANDIRI,4,text,Pilih Transfer,ID
+56,3,ATM MANDIRI,5,text,Pilih ke Rekening Mandiri,ID
+57,3,ATM MANDIRI,6,text,Masukan Nomer Virtual Akun Anda,ID
+58,3,ATM MANDIRI,7,text,Masukan Nominal Top Up,ID
+59,3,ATM MANDIRI,8,text,Konfirmasi transaksi,ID
+60,3,ATM MANDIRI,9,text,Selesai,ID
+61,3,Mandiri Online Apps,1,text,Login ke aplikasi Mandiri Online,ID
+62,3,Mandiri Online Apps,2,text,Masukkan User ID dan password,ID
+63,3,Mandiri Online Apps,3,text,Pilih menu Transfer,ID
+64,3,Mandiri Online Apps,4,text,Pilih ke Rekening Mandiri,ID
+65,3,Mandiri Online Apps,5,text,Masukan Nomer Virtual Akun Anda,ID
+66,3,Mandiri Online Apps,6,text,Masukan Nominal Top Up,ID
+67,3,Mandiri Online Apps,7,text,Konfirmasi transaksi,ID
+68,3,Mandiri Online Apps,8,text,Selesai,ID
+69,3,Mandiri Online Web,1,text,Login ke Website Mandiri Online,ID
+70,3,Mandiri Online Web,2,text,Masukkan User ID dan password,ID
+71,3,Mandiri Online Web,3,text,Pilih Transfer,ID
+72,3,Mandiri Online Web,4,text,Pilih ke Rekening Mandiri,ID
+73,3,Mandiri Online Web,5,text,Masukan Nomer Virtual Akun Anda,ID
+74,3,Mandiri Online Web,6,text,Masukan Nominal Top Up,ID
+75,3,Mandiri Online Web,7,text,Konfirmasi transaksi,ID
+76,3,Mandiri Online Web,8,text,Selesai,ID
+77,4,ATM,1,text,Pilih Menu Transfer,ID
+78,4,ATM,2,text,Pilih Transfer ke Rekening PermataBank,ID
+79,4,ATM,3,text,"Saat diminta no.rekening tujuan, masukan 4 (empat) digit kode VA perusahaan YAMIPAY (7111) diikuti nomor HP Anda yang terdaftar di YAMIPAY contoh : 7111081234567890",ID
+80,4,ATM,4,text,"Untuk nominal transfer, masukan nominal isi ulang <<YAMIPAY>> yang Anda inginkan",ID
+81,4,ATM,5,text,Transaksi Selesai,ID
+82,4,Mobile Banking / Permata Mobile,1,text,Pilih Menu Transfer,ID
+83,4,Mobile Banking / Permata Mobile,2,text,Pilih Transfer ke Antar Rekening PermataBank,ID
+84,4,Mobile Banking / Permata Mobile,3,text,"Saat diminta no.rekening tujuan, masukan 4 (empat) digit kode VA perusahaan YAMIPAY (7111) diikuti nomor HP Anda yang terdaftar di YAMIPAY contoh : 7111081234567890, Untuk nominal transfer",ID
+85,4,Mobile Banking / Permata Mobile,4,text,Masukan nominal isi ulang <<YAMIPAY>> yang Anda inginkan,ID
+86,4,Mobile Banking / Permata Mobile,5,text,Transaksi Selesai,ID
+87,4,Internet Banking / Permata Net,1,text,Pilih Menu Transfer,ID
+88,4,Internet Banking / Permata Net,2,text,Pilih Transfer ke Antar Rekening PermataBank,ID
+89,4,Internet Banking / Permata Net,3,text,"Saat diminta no.rekening tujuan, masukan 4 (empat) digit kode VA perusahaan YAMIPAY (7111) diikuti nomor HP Anda yang terdaftar di YAMIPAY contoh : 7111081234567890, Untuk nominal transfer",ID
+90,4,Internet Banking / Permata Net,4,text,Masukan nominal isi ulang <<YAMIPAY>> yang Anda inginkan,ID
+91,4,Internet Banking / Permata Net,5,text,Masukan Otentikasi transaksi/Token,ID
+92,4,Internet Banking / Permata Net,6,text,Transaksi selesai,ID
