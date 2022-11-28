@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
             Lang\ProjectSeeder::class,
             Lang\ProjectVersionSeeder::class,
             Bill\Bill::class,
-            Bill\BillPayment::class,
             Cart\Card::class,
             Notifications\Notifications::class,
             Wallet\WalletLabelsSeeder::class,
