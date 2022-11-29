@@ -5,9 +5,9 @@ namespace Database\Seeders\Ppob;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Ppob\ProductV2;
+use App\Models\Ppob\Products;
 
-class DigitalProductV2Seeder extends Seeder
+class DigitalProductsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +17,11 @@ class DigitalProductV2Seeder extends Seeder
     public function run()
     {
         $csvFile = fopen(base_path("database/doc/productDigital.csv"), "r");
-        ProductV2::truncate();
+        Products::truncate();
         $firstline = true;
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
-                ProductV2::create([
+                Products::create([
                     'code' => $data['0'],
                     'name' => $data['1'],
                     'slug' => $data['2'],

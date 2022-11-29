@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             Accounts\AccountsBankInstructionSeeder::class,
             Accounts\AccountsBankInstructionLinesSeeder::class,
             Ppob\ServiceSeeder::class,
-            Ppob\DigitalProductV2Seeder::class,
+            Ppob\DigitalProductsSeeder::class,
             Ppob\DigitalProductServiceSeederV2::class,
             Accounts\AccountsBankInstructionSeeder::class,
             Accounts\AccountsBankInstructionLinesSeeder::class

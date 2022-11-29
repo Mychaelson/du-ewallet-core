@@ -36,7 +36,7 @@ class DigitalCategories extends Model
 
     public function products()
     {
-        return $this->hasMany(ProductV2::class, 'category_id');
+        return $this->hasMany(Products::class, 'category_id');
     }
 
     public function scopeActive($query)

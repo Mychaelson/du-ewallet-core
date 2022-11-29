@@ -5,7 +5,7 @@ namespace App\Models\Ppob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductV2 extends Model
+class Products extends Model
 {
     use HasFactory;
     protected $fillable = ['code',
@@ -22,7 +22,7 @@ class ProductV2 extends Model
         'service_id',
         'meta'
     ];
-    protected $table = 'ppob.product_v2';
+    protected $table = 'ppob.products';
 
     public function service()
     {

@@ -19,6 +19,6 @@ class ProductService extends Model
 
     public function product()
     {
-        return $this->belongsTo(ProductV2::class, 'product_code');
+        return $this->belongsTo(Products::class, 'product_code');
     }
 }

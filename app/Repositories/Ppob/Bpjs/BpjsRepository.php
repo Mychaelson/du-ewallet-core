@@ -5,7 +5,7 @@ namespace App\Repositories\Ppob\Bpjs;
 use App\Models\Ppob\DigitalProducts;
 use App\Resources\Ppob\Data\DataResource as ResultResource;
 use App\Models\Ppob\DigitalTransactions;
-use App\Models\Ppob\ProductV2;
+use App\Models\Ppob\Products;
 use App\Repositories\Payment\BillRepository;
 use App\Repositories\Ppob\Base\PpobRepository;
 use Illuminate\Support\Facades\App;
@@ -18,7 +18,7 @@ class BpjsRepository
     private $billRepository;
 
     public function __construct(
-        PpobRepository $ppobRepository, ProductV2 $product, BillRepository $billRepository
+        PpobRepository $ppobRepository, Products $product, BillRepository $billRepository
     ){
         $this->ppobRepository = $ppobRepository;
         $this->product = $product;

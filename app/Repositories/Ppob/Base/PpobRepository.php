@@ -3,7 +3,7 @@
 namespace App\Repositories\Ppob\Base;
 
 use App\Models\Ppob\DigitalCategories;
-use App\Models\Ppob\ProductV2;
+use App\Models\Ppob\Products;
 use App\Models\Ppob\TransactionV2;
 use App\Resources\Ppob\CategoryProduct\CategoryProductCollection as Resultcollection;
 use App\Resources\Ppob\Data\DataResource as ResultResource;
@@ -22,7 +22,7 @@ class PpobRepository
 
     public function __construct(
         TransactionV2 $transactionV2,
-        ProductV2 $product,
+        Products $product,
         PortalPulsa $portalPulsa
     )
     {
@@ -198,13 +198,13 @@ class PpobRepository
 
     public function findProductByProductCode($productCode){
         $data = $this->product
-                    ->join('ppob.service_v2', 'ppob.product_v2.service_id', '=', 'ppob.service_v2.id')
+                    ->join('ppob.service_v2', 'ppob.products.service_id', '=', 'ppob.service_v2.id')
                     ->join('ppob.product_services', function($join){
-                        $join->on('ppob.product_services.product_code', 'ppob.product_v2.code');
-                        $join->on('ppob.product_services.service_id', 'ppob.product_v2.service_id');
+                        $join->on('ppob.product_services.product_code', 'ppob.products.code');
+                        $join->on('ppob.product_services.service_id', 'ppob.products.service_id');
                     })
                     ->select(
-                        'ppob.product_v2.*', 
+                        'ppob.products.*', 
                         'ppob.service_v2.name as service_name', 
                         'ppob.service_v2.path as service_path', 
                         'ppob.service_v2.id as service_id',
@@ -213,7 +213,7 @@ class PpobRepository
                         'ppob.product_services.code as service_product_code',
                         'ppob.product_services.status as service_status',
                     )
-                    ->where('ppob.product_v2.code', $productCode)  
+                    ->where('ppob.products.code', $productCode)  
                     ->first();
         
         return $data;
@@ -250,7 +250,7 @@ class PpobRepository
             ->chunk(100, function ($data) {
                 foreach ($data as $value) {
                     if($value->row_number == 1){
-                        $update = DB::table('ppob.product_v2')
+                        $update = DB::table('ppob.products')
                         ->where('code', $value->product_code)
                         ->update(
                             [
