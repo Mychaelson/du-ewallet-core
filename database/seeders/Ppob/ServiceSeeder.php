@@ -15,7 +15,7 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ppob.service_v2')->insert([
+        DB::table('ppob.services')->insert([
             [
                 'name' => 'Portal Pulsa',
                 'status' => 1,

@@ -5,10 +5,10 @@ namespace App\Models\Ppob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TransactionV2 extends Model
+class Transaction extends Model
 {
     use HasFactory;
-    protected $table = 'ppob.transaction_v2';
+    protected $table = 'ppob.transactions';
     protected $fillable = [
         'user_id', 
         'product_code', 

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ppob.transaction_v2', function (Blueprint $table) {
+        Schema::create('ppob.transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->string('product_code');
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppob.transaction_v2');
+        Schema::dropIfExists('ppob.transactions');
     }
 };

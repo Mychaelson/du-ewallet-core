@@ -78,7 +78,7 @@ class WalletsTransactionsRepository
 
     public function getListTransaction($wallet_id, $page, $is_spending = null){
 
-        $subQuery = DB::table('ppob.transaction_v2 AS a')
+        $subQuery = DB::table('ppob.transactions AS a')
                         ->join('ppob.products AS b', 'a.product_code', '=', 'b.code')
                         ->selectRaw(
                             'a.id, a.invoice_no as order_id, b."name" as description, a.price_sell net_amount, a.admin_fee fee, a.discount, a.total, a.created_at'

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ppob.service_v2', function (Blueprint $table) {
+        Schema::create('ppob.services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->tinyInteger('status')->default(1);
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppob.service_v2');
+        Schema::dropIfExists('ppob.services');
     }
 };

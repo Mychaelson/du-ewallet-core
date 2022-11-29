@@ -4,7 +4,7 @@ namespace App\Repositories\Ppob\Base;
 
 use App\Models\Ppob\DigitalCategories;
 use App\Models\Ppob\Products;
-use App\Models\Ppob\TransactionV2;
+use App\Models\Ppob\Transaction;
 use App\Resources\Ppob\CategoryProduct\CategoryProductCollection as Resultcollection;
 use App\Resources\Ppob\Data\DataResource as ResultResource;
 use App\Repositories\Ppob\Vendor\Service\PortalPulsa;
@@ -16,17 +16,17 @@ use League\OAuth1\Client\Server\Tumblr;
 
 class PpobRepository
 {
-    private $transactionV2;
+    private $Transaction;
     private $product;
     private $portalPulsa;
 
     public function __construct(
-        TransactionV2 $transactionV2,
+        Transaction $Transaction,
         Products $product,
         PortalPulsa $portalPulsa
     )
     {
-        $this->transactionV2 = $transactionV2;
+        $this->Transaction = $Transaction;
         $this->product = $product;
     }
 
@@ -98,13 +98,13 @@ class PpobRepository
     }
 
     public function insertTransaction($data){
-        $data = $this->transactionV2->insertGetId($data);
+        $data = $this->Transaction->insertGetId($data);
         
         return $data;
     }
 
     public function getTransactionById($transactionId, $productCategory){
-        $result = $this->transactionV2->where('id', $transactionId)->first();
+        $result = $this->Transaction->where('id', $transactionId)->first();
         $product = $this->product->where('code', $result->product_code)->first();
 
         $transactionDataInq = json_decode($result->req_inquiry, true);
@@ -191,23 +191,23 @@ class PpobRepository
     }
 
     public function updateTransactionById ($transactionId, $data){
-        $data = $this->transactionV2->where('id', $transactionId)->update($data);
+        $data = $this->Transaction->where('id', $transactionId)->update($data);
 
         return $data;
     }
 
     public function findProductByProductCode($productCode){
         $data = $this->product
-                    ->join('ppob.service_v2', 'ppob.products.service_id', '=', 'ppob.service_v2.id')
+                    ->join('ppob.services', 'ppob.products.service_id', '=', 'ppob.services.id')
                     ->join('ppob.product_services', function($join){
                         $join->on('ppob.product_services.product_code', 'ppob.products.code');
                         $join->on('ppob.product_services.service_id', 'ppob.products.service_id');
                     })
                     ->select(
                         'ppob.products.*', 
-                        'ppob.service_v2.name as service_name', 
-                        'ppob.service_v2.path as service_path', 
-                        'ppob.service_v2.id as service_id',
+                        'ppob.services.name as service_name', 
+                        'ppob.services.path as service_path', 
+                        'ppob.services.id as service_id',
                         'ppob.product_services.base_price as service_base_price',
                         'ppob.product_services.admin_fee as service_admin_fee',
                         'ppob.product_services.code as service_product_code',
@@ -220,7 +220,7 @@ class PpobRepository
     }
 
     public function getTransactionByInvoiceNo ($invoice_no){
-        $data = $this->transactionV2->where('invoice_no', $invoice_no)->first();
+        $data = $this->Transaction->where('invoice_no', $invoice_no)->first();
 
         return $data;
     }
@@ -386,7 +386,7 @@ class PpobRepository
     
     public function countTransaction ($productCode, $user_id)
     {
-        $data = $this->transactionV2->where('user_id', $user_id)
+        $data = $this->Transaction->where('user_id', $user_id)
                                     ->where('product_code', $productCode)
                                     ->where('status', 3)
                                     ->whereDay('created_at', date("d") )
@@ -398,7 +398,7 @@ class PpobRepository
 
     public function updateTransactionByInvoice ($invoice, $data)
     {
-        $data = $this->transactionV2->where('invoice_no', $invoice)->update($data);
+        $data = $this->Transaction->where('invoice_no', $invoice)->update($data);
 
         return $data;
     }
