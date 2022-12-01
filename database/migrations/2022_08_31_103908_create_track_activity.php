@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('track.activities', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('activity_screen', 100)->default('unknown');
+            $table->string('activity_screen', 100)->default('unknown')->nullable();
             $table->dateTime('open_time')->nullable();
             $table->dateTime('leave_time')->default(now());
             $table->string('next_activity_screen', 100)->nullable();
