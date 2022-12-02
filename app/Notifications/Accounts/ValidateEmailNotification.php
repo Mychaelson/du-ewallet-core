@@ -17,10 +17,14 @@ class ValidateEmailNotification
         $otp = $data['otp'];
         $company = config('company.info');
 
-        $viewData['company'] = $company['name'];
-        $viewData['brand'] = $company['brand'];
-        $viewData['domain'] = $company['domain'];
-        $viewData['assets'] = $company['assets'];
+        // $viewData['company'] = $company['name'];
+        // $viewData['brand'] = $company['brand'];
+        // $viewData['domain'] = $company['domain'];
+        // $viewData['assets'] = $company['assets'];
+        $viewData['company'] = "PT.dewaunited";
+        $viewData['brand'] = "Dewa United";
+        $viewData['domain'] = "https://dewaunited.com/";
+        $viewData['assets'] = "https://dewaunited.com/images/du-logo-universal.png";
         $viewData['vcode'] = $otp->token;
         $view = view('mail.verify-email-code', $viewData)->render();
 
