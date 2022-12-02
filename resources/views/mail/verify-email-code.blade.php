@@ -25,7 +25,7 @@
                 <table cellpadding="0" cellspacing="0" role="presentation" class="w-600 sm-w-full" style="width:600px !important;background-color:#fff; border-radius: 10px; -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);">
                   <tr>
                     <td class="align-center pt-40" colspan="2" style="text-align:center;padding-top:40px;">
-                      <h1 class="main-head" style="margin-bottom:40px;"><img class="img-heading align-center" src="{{ $assets }}" title="{{$brand}}" style="border:0;line-height:100%;vertical-align:middle;text-align:center;width:180px;"></h1>
+                      <h1 class="main-head" style="margin-bottom:40px;"><img class="img-heading align-center" src="{{ $assets }}logo.png" title="{{$brand}}" style="border:0;line-height:100%;vertical-align:middle;text-align:center;width:180px;"></h1>
                     </td>
                   </tr>
                   <tr>
@@ -53,7 +53,7 @@
                       <p class="text-12" style="font-size:12px;line-height:16px;margin:0;">{{ $company }}</p>
                     </td>
                     <td class="align-top align-right" style="text-align:right;vertical-align:top !important;padding-right: 30px;">
-                      <span class="footer-logo"><img src="{{ $assets }}" style="border:0;line-height:100%;vertical-align:middle;width:110px;"></span>
+                      <span class="footer-logo"><img src="{{ $assets }}logo.png" style="border:0;line-height:100%;vertical-align:middle;width:110px;"></span>
                       <p class="text-12 pt-10" style="padding-top:10px;font-size:12px;line-height:16px;margin:0;"><a target="_blank" href="{{ $domain }}" style="color:#0072bc;text-decoration:none;">{{ $domain }}</a>	</p>
                     </td>
                   </tr>
