@@ -28,8 +28,8 @@ class EmailPortalApi
 
     public function send($data)
     {
-    	$this->rawUrl = $this->endPoint."/sendmail";
-    	$this->rawRequest = $data;
+        $this->rawUrl = $this->endPoint."/sendmail";
+        $this->rawRequest = $data;
 
         //should validate data
         $validateData = $this->validate($data);
@@ -37,13 +37,13 @@ class EmailPortalApi
             return false;
 
         $data['from'] = $this->from;
-    	$header = [
-    		"api_user: ".$this->apiUser,
-    		"api_pass: ".$this->apiPass,
-    		"Content-Type: application/json"
-    	];
+        $header = [
+            "api_user: ".$this->apiUser,
+            "api_pass: ".$this->apiPass,
+            "Content-Type: application/json"
+        ];
 
-    	$client = curl_init();
+        $client = curl_init();
         curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($client, CURLOPT_ENCODING, "");
         curl_setopt($client, CURLOPT_MAXREDIRS, 10);

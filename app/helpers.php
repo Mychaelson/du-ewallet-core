@@ -94,8 +94,8 @@ if (! function_exists('generate_otp')) {
         } elseif ($channel == 'email') {
             $data['otp'] = $otp;
             $data['email'] = $username;
-            /*$mailer = new \App\Notifications\Accounts\ValidateEmailNotification(new \App\Repositories\Services\Mail\EmailPortal\EmailPortalApi());
-            $mailer->handle($data);*/
+            $mailer = new \App\Notifications\Accounts\ValidateEmailNotification(new \App\Repositories\Services\Mail\EmailPortal\EmailPortalApi());
+            $mailer->handle($data);
         }
 
         return $otp;
