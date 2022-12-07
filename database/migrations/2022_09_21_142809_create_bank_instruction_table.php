@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('bank_code');
             $table->integer('bank_id');
             $table->timestamps();
+
+            $table->index(['bank_code', 'bank_id'], 'bank_instruction_idx');
         });
     }
 

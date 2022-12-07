@@ -22,6 +22,8 @@ return new class extends Migration
             $table->text('step_value');
             $table->string('lang');
             $table->timestamps();
+
+            $table->index(['instruction_id'], 'bank_instruction_lines_idx');
         });
     }
 

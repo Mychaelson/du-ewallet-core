@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('service');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
+
+            $table->index(['biller_id'], 'biller_services_idx');
         });
     }
 

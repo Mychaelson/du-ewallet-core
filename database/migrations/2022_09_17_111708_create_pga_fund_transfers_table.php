@@ -33,6 +33,8 @@ return new class extends Migration
             $table->string('status');
             $table->text('error_message')->nullable();
             $table->timestamps();
+
+            $table->index(['transaction_id', 'action', 'bank_code', 'bank_account_number'], 'pga_fund_transfers_idx');
         });
     }
 

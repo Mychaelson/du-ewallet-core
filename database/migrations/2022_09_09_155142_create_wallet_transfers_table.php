@@ -28,6 +28,8 @@ return new class extends Migration
             $table->dateTime('schedule')->nullable();
             $table->unsignedInteger('repeat')->nullable();
             $table->timestamps();
+
+            $table->index(['from', 'to', 'label'], 'wallet_transfers_idx');
         });
     }
 

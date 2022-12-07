@@ -20,6 +20,8 @@ return new class extends Migration
             $table->decimal('fee', 13, 2)->default(0.00);
             $table->tinyInteger('status');
             $table->timestamps();
+
+            $table->index(['wallet_id', 'bank_id'], 'wallet_withdraw_fee_idx');
         });
     }
 

@@ -32,6 +32,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('lock_pm')->default(0);
             $table->unsignedTinyInteger('lock_nv_crt')->default(0);
             $table->timestamps();
+
+            $table->index(['user_id'], 'wallets_idx');
         });
     }
 

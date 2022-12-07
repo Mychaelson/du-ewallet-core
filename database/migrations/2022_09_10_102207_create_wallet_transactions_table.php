@@ -25,6 +25,8 @@ return new class extends Migration
             $table->double('balance_before', 13, 2)->nullable();
             $table->string('location')->nullable();
             $table->timestamps();
+
+            $table->index(['wallet_id', 'reff_id', 'label_id'], 'wallet_transactions_idx');
         });
     }
 

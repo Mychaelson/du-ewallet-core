@@ -31,6 +31,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default(1);
             $table->json('notify')->nullable();
             $table->timestamps();
+
+            $table->index(['user_id', 'wallet_id'], 'wallet_withdraw_idx');
         });
     }
 

@@ -32,6 +32,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default(2);
             $table->dateTime('expires')->nullable();
             $table->timestamps();
+
+            $table->index(['user_id', 'wallet_id', 'label_id', 'bank_to_id'], 'wallet_topup_idx');
         });
     }
 

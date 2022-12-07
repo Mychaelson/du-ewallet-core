@@ -42,7 +42,7 @@ return new class extends Migration
             $table->string('error_message')->nullable();
             $table->timestamps();
 
-            $table->index('transaction_id');
+            $table->index(['transaction_id', 'action'], 'pga_bills_idx');
         });
     }
 

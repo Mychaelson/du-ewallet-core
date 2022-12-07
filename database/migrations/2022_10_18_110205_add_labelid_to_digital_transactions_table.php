@@ -13,9 +13,6 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('ppob.digital_transactions', function (Blueprint $table) {
-            $table->integer('label_id')->default(1);
-        });
     }
 
     /**
@@ -25,8 +22,5 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('ppob.digital_transactions', function (Blueprint $table) {
-            $table->dropColumn('label_id');
-        });
     }
 };

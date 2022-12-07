@@ -42,8 +42,6 @@ class DatabaseSeeder extends Seeder
             Settings\SiteParamsSeeder::class,
             Ppob\BillerServiceSeeder::class,
             Ppob\DigitalCategorySeeder::class,
-            Ppob\DigitalProductSeeder::class,
-            Ppob\DigitalProductServiceSeeder::class,
             Ppob\SettingSeeder::class,
             Ppob\BillerSeeder::class,
             Accounts\AccountsBankInstructionSeeder::class,
