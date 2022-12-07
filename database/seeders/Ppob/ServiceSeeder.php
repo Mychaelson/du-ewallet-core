@@ -23,7 +23,7 @@ class ServiceSeeder extends Seeder
                 'contact' => '+6285727700650',
                 'balance' => 0,
                 'attachment' => null,
-                'path' => 'App\Repositories\Ppob\Vendor\Service\PostalPulsa',
+                'path' => 'App\Repositories\Ppob\Vendor\Service\PortalPulsa',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
