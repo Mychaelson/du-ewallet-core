@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ppob.digital_categories', function (Blueprint $table) {
+        Schema::create('ppob.categories', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->nullable();
             $table->string('slug', 255)->nullable();
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ppob.digital_categories');
+        Schema::dropIfExists('ppob.categories');
     }
 };

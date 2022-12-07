@@ -10,7 +10,7 @@ use App\Repositories\Ppob\Games\GamesRepository;
 use App\Repositories\Ppob\Base\PpobRepository;
 use App\Repositories\Ppob\DigitalProductsRepository;
 use App\Repositories\Ppob\DigitalCategoryRepository;
-use App\Models\Ppob\DigitalCategories;
+use App\Models\Ppob\Categories;
 use App\Resources\Ppob\CategoryProduct\CategoryProductResource as ResultResource;
 use App\Resources\Ppob\CategoryProduct\CategoryProductCollection as Resultcollection;
 
@@ -22,7 +22,7 @@ class ProductController extends Controller
     protected $games;
     protected $base;
     private $digitalProductsRepository;
-    private $digitalCategories;
+    private $Categories;
 
     public function __construct(
         CellularRepository $cellular ,
@@ -31,7 +31,7 @@ class ProductController extends Controller
         PpobRepository $base,
         DigitalProductsRepository $digitalProductsRepository,
         Request $request, 
-        DigitalCategories $digitalCategories
+        Categories $Categories
         )
     {
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
         $this->pdam = $pdam;
         $this->games = $games;
         $this->base = $base;
-        $this->digitalCategories = $digitalCategories;
+        $this->Categories = $Categories;
         $this->currency = request()->input('currency', 'IDR');
         $this->userId = isset($request->user()->id) ? $request->user()->id : 26;
     }
@@ -105,7 +105,7 @@ class ProductController extends Controller
     public function products($slug ,Request $request)
     {
         //$currency = isset($request->currency) ? $request->currency : "IDR";
-        $category = $this->digitalCategories->with([
+        $category = $this->Categories->with([
             'products' => function($q) { 
                 //$q->where('currency', $currency)->where('status', 1)->orderBy('order'); 
                 $q->where('status', 1)->orderBy('name'); 
@@ -136,7 +136,7 @@ class ProductController extends Controller
     public function productCategory($slug, Request $request)
     {
         //$currency = isset($request->currency) ? $request->currency : "IDR";
-        $category = $this->digitalCategories->where('slug', $slug);
+        $category = $this->Categories->where('slug', $slug);
         $data = $category->with(['products' => function($q){ 
             $q->where('status', 1)->orderBy('name');
         }])->get();

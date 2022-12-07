@@ -42,7 +42,7 @@ class InboxController extends Controller
     $groups = [
       [
         'category' => 'Customer Care',
-        'icon' => asset('logo.jpeg'),
+        'icon' => asset('white_logo.png'),
         'last_content' => 'help',
         'last_updated' => date('Y-m-d H:i:s'),
         'last_activity' => 'last_activity',

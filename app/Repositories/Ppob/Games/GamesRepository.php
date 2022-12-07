@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Ppob\Games;
 
-use App\Models\Ppob\DigitalCategories;
+use App\Models\Ppob\Categories;
 use App\Models\Ppob\DigitalProducts;
 use App\Models\Ppob\DigitalTransactions;
 use App\Repositories\Payment\BillRepository;
@@ -26,7 +26,7 @@ class GamesRepository
     }
     public function getDetail($request,$slug)
     {
-            $category = DigitalCategories::with([
+            $category = Categories::with([
                 'products' => function($q){
                     $q->where('status',1);
                 }])->where('slug',$slug)->orWhere('id',$slug)->firstOrFail();

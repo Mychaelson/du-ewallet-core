@@ -5,11 +5,11 @@ namespace App\Models\Ppob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DigitalCategories extends Model
+class Categories extends Model
 {
     use HasFactory;
 
-    protected $table = 'ppob.digital_categories';
+    protected $table = 'ppob.categories';
     protected  $primaryKey = 'id';
     public $timestamps = false;
 

@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Ppob\Base;
 
-use App\Models\Ppob\DigitalCategories;
+use App\Models\Ppob\Categories;
 use App\Models\Ppob\Products;
 use App\Models\Ppob\Transaction;
 use App\Resources\Ppob\CategoryProduct\CategoryProductCollection as Resultcollection;
@@ -32,7 +32,7 @@ class PpobRepository
 
     public function getList($slug,$request)
     {
-        $category = DigitalCategories::where('slug',$slug)->first();
+        $category = Categories::where('slug',$slug)->first();
 
         if(!$category)
             return response()->json(['success'=>false, 'response_code' => 404, 'message' => trans('error.data_not_found_in_category')], 404);

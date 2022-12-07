@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Ppob\Cellular;
 
-use App\Models\Ppob\DigitalCategories;
+use App\Models\Ppob\Categories;
 use App\Models\Ppob\DigitalProducts;
 use App\Models\Ppob\DigitalTransactions;
 use App\Resources\Ppob\CategoryProduct\CategoryProductCollection as Resultcollection;
@@ -27,7 +27,7 @@ class CellularRepository
     private $billRepository;
 
     public function __construct(
-        DigitalCategories $category,DigitalProducts $products ,UsersRepository $usersRepository,WalletsRepository $walletsRepository
+        Categories $category,DigitalProducts $products ,UsersRepository $usersRepository,WalletsRepository $walletsRepository
         ,WalletsTransactionsRepository $walletsTransactionsRepository, PpobRepository $ppobRepository, BillRepository $billRepository
     ){
         $this->category = $category;

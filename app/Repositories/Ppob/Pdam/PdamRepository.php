@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Ppob\Pdam;
 
-use App\Models\Ppob\DigitalCategories;
+use App\Models\Ppob\Categories;
 use App\Models\Ppob\DigitalProducts;
 use App\Resources\Ppob\Data\DataResource as ResultResource;
 use App\Models\Ppob\DigitalTransactions;
@@ -25,7 +25,7 @@ class PdamRepository
     
     public function getList($request)
     {
-        $category = DigitalCategories::with([
+        $category = Categories::with([
             'products' => function($query) use ($request) {
                 // $query->where('currency',$request->input('currency', 'IDR'));
                 if ($request->has('q')) {

@@ -15,7 +15,7 @@ class DigitalCategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ppob.digital_categories')->insert([
+        DB::table('ppob.categories')->insert([
                 [
                 'id' => 1,
                 'name' => 'Top Up GSM',
