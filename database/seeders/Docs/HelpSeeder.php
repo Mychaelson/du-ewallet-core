@@ -65,8 +65,8 @@ class HelpSeeder extends Seeder
                 'category' => '2',
                 'locale' => 'id-ID',
                 'group' => 'user',
-                'title' => 'Apa Itu Nusaku',
-                'content' => '<h3>Nusaku</h3><p>Nusaku merupakan dompet elektronik milik setiap pengguna '.$brand.', berfungsi untuk menampung saldo dan melakukan pencatatan transaksi digital pada aplikasi '.$brand.'.</p><h3>Saldo</h3><p>Saldo '.$brand.' adalah dana yang Anda simpan di akun '.$brand.', dengan saldo '.$brand.', Anda dapat melakukan pembelian dan pembayaran setiap produk yang tersedia pada layanan '.$brand.'. Saldo '.$brand.' menggunakan mata uang Rupiah dan dapat diisi (Top Up) melalalui transfer bank atau <em>Virtual Account</em>.</p>',
+                'title' => 'Apa Itu Dupay',
+                'content' => '<h3>Dupay</h3><p>Dupay merupakan dompet elektronik milik setiap pengguna '.$brand.', berfungsi untuk menampung saldo dan melakukan pencatatan transaksi digital pada aplikasi '.$brand.'.</p><h3>Saldo</h3><p>Saldo '.$brand.' adalah dana yang Anda simpan di akun '.$brand.', dengan saldo '.$brand.', Anda dapat melakukan pembelian dan pembayaran setiap produk yang tersedia pada layanan '.$brand.'. Saldo '.$brand.' menggunakan mata uang Rupiah dan dapat diisi (Top Up) melalalui transfer bank atau <em>Virtual Account</em>.</p>',
                 'keywords' => '',
             ],
             [
@@ -116,7 +116,7 @@ class HelpSeeder extends Seeder
                 'locale' => 'id-ID',
                 'group' => 'user',
                 'title' => 'Transfer ke Pengguna '.$brand.' Lain',
-                'content' => '<h3>Transfer</h3><p>Anda dapat melakukan Transfer Saldo ke sesama pengguna aplikasi '.$brand.', dengan ketentuan Penerima telah di <strong>"Verfikasi"</strong> statusnya oleh '.$brand.'.&nbsp;</p><p>Untuk melakukan Transfer Saldo ke Pengguna lain caranya adalah sebagai berikut :</p><ol><li>Pilih Transfer pada Halaman Beranda / Dompet Saya</li><li>Pilih Nusaku ( Dompet Elektronik '.$brand.')</li><li>Isi Tujuan, berupa nomer Telepon atau @Cashtag</li><li>Konfirmasi Tujuan</li><li>Isi Jumlah Nominal</li><li>Isi Catatan Transfer</li><li>Pilih Post Card dan Konfrimasi&nbsp;</li><li>Pilih Transfer Sekarang</li><li>&nbsp;Isi PIN Transaksi</li></ol><p>Pengirim akan mendapatkan Laporan Transaksi "<strong>Berhasil</strong>" sebagai bukti telah terkirimnya Saldo ke Pengguna lain.</p><h3>Ketentuan</h3><ul><li>Batas minimum saldo transaksi pengiriman adalah<strong> IDR. 10.000 </strong>( Sepuluh Ribu Rupiah )&nbsp;</li><li>Batas maksimum saldo pengiriman Sejumlah limit Bulanan pada Dompet Elektronik '.$brand.' yaitu<strong> IDR.10.000.000&nbsp;</strong>(Sepuluh<br />Juta Rupiah )</li></ul><p>&nbsp;</p>',
+                'content' => '<h3>Transfer</h3><p>Anda dapat melakukan Transfer Saldo ke sesama pengguna aplikasi '.$brand.', dengan ketentuan Penerima telah di <strong>"Verfikasi"</strong> statusnya oleh '.$brand.'.&nbsp;</p><p>Untuk melakukan Transfer Saldo ke Pengguna lain caranya adalah sebagai berikut :</p><ol><li>Pilih Transfer pada Halaman Beranda / Dompet Saya</li><li>Pilih Dupay ( Dompet Elektronik '.$brand.')</li><li>Isi Tujuan, berupa nomer Telepon atau @Cashtag</li><li>Konfirmasi Tujuan</li><li>Isi Jumlah Nominal</li><li>Isi Catatan Transfer</li><li>Pilih Post Card dan Konfrimasi&nbsp;</li><li>Pilih Transfer Sekarang</li><li>&nbsp;Isi PIN Transaksi</li></ol><p>Pengirim akan mendapatkan Laporan Transaksi "<strong>Berhasil</strong>" sebagai bukti telah terkirimnya Saldo ke Pengguna lain.</p><h3>Ketentuan</h3><ul><li>Batas minimum saldo transaksi pengiriman adalah<strong> IDR. 10.000 </strong>( Sepuluh Ribu Rupiah )&nbsp;</li><li>Batas maksimum saldo pengiriman Sejumlah limit Bulanan pada Dompet Elektronik '.$brand.' yaitu<strong> IDR.10.000.000&nbsp;</strong>(Sepuluh<br />Juta Rupiah )</li></ul><p>&nbsp;</p>',
                 'keywords' => '',
             ],
             [

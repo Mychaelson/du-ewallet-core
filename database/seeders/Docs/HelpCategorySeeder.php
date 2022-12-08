@@ -28,7 +28,7 @@ class HelpCategorySeeder extends Seeder
             [
                 'id' => '2',
                 'user' => '5',
-                'name' => 'Dompet Saya / Nusaku',
+                'name' => 'Dompet Saya / Dupay',
                 'group' => 'user',
                 'slug' => 'ewallet',
                 'locale' => 'id-ID',

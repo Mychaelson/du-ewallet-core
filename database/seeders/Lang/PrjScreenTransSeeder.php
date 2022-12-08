@@ -679,8 +679,8 @@ class PrjScreenTransSeeder extends Seeder
             [
                 'id' => 84,
                 'project_screen_id' => 3,
-                'key' => 'nusaku',
-                'default_translation' => 'nusaku',
+                'key' => 'Dupay',
+                'default_translation' => 'Dupay',
                 'status' => 1,
                 'last_status_date' =>  null,
             ],
@@ -4023,8 +4023,8 @@ class PrjScreenTransSeeder extends Seeder
             [
                 'id' => 502,
                 'project_screen_id' => 93,
-                'key' => 'Dompet Saya / Nusaku',
-                'default_translation' => 'Dompet Saya / Nusaku',
+                'key' => 'Dompet Saya / Dupay',
+                'default_translation' => 'Dompet Saya / Dupay',
                 'status' => 1,
                 'last_status_date' =>  null,
             ],
@@ -4928,8 +4928,8 @@ class PrjScreenTransSeeder extends Seeder
             [
                 'id' => 615,
                 'project_screen_id' => 106,
-                'key' => 'transfer_nusaku_message',
-                'default_translation' => 'transfer_nusaku_message',
+                'key' => 'transfer_Dupay_message',
+                'default_translation' => 'transfer_Dupay_message',
                 'status' => 1,
                 'last_status_date' =>  null,
             ],
@@ -6376,8 +6376,8 @@ class PrjScreenTransSeeder extends Seeder
             [
                 'id' => 796,
                 'project_screen_id' => 134,
-                'key' => 'nusaku_history',
-                'default_translation' => 'nusaku_history',
+                'key' => 'Dupay_history',
+                'default_translation' => 'Dupay_history',
                 'status' => 1,
                 'last_status_date' =>  null,
             ],

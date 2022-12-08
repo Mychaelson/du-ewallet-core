@@ -424,9 +424,9 @@ class PaymentController extends Controller
             'internal' => true,
             // 'class' => 'NpBillGwallet\\Library\\Method',
         ],
-        'nusaku' => [
+        'Dupay' => [
             'internal' => true,
-            // 'class' => 'NpBillNusaku\\Library\\Method',
+            // 'class' => 'NpBillDupay\\Library\\Method',
         ],
         'promo' => [
             'internal' => true,
@@ -496,8 +496,8 @@ class PaymentController extends Controller
                 // $res['content'] = $this->getInfoCard($bill, $where);
                 $res['content'] = [];
 
-            }else if($name == 'nusaku') {
-                $res['content'] = $this->getInfoNusaku($bill, $where);
+            }else if($name == 'Dupay') {
+                $res['content'] = $this->getInfoDupay($bill, $where);
             }
 
             if ($res['content'])
@@ -514,7 +514,7 @@ class PaymentController extends Controller
         return $this->response(0, $result, "OK");
     }
 
-    public function getInfoNusaku($bill, $where)
+    public function getInfoDupay($bill, $where)
     {
         if($bill->wallet != 'local')
             return null;
@@ -637,8 +637,8 @@ class PaymentController extends Controller
 
         $method = $request->method;
 
-        if ($method == 'nusaku')
-            $result = $this->createPaymentNusaku($bill, (object)$request->data);
+        if ($method == 'Dupay')
+            $result = $this->createPaymentDupay($bill, (object)$request->data);
         else if ($method == 'card')
             $result = $this->createPaymentCard($bill, (object)$request->data);
             
@@ -761,8 +761,8 @@ class PaymentController extends Controller
             'value' => 2];
 
         $data->method = [
-            'label' => 'Nusaku',
-            'value' => 'nusaku'];
+            'label' => 'Dupay',
+            'value' => 'dupay'];
                 
         $data->updated = $data->updated_at;
         $data->created = $data->created_at;
@@ -797,7 +797,7 @@ class PaymentController extends Controller
         return $result;
     }
 
-    public function createPaymentNusaku($bill, $request)
+    public function createPaymentDupay($bill, $request)
     {
         $wallet = $this->walletsRepository->getWalletById($request->wallet);
 
