@@ -109,7 +109,7 @@ class AutoPaymentController extends Controller
     {
         $where = [
             'digital_categories.id' => $id,
-            'digital_products.status' => 1,
+            'products.status' => 1,
         ];
         $categories = $this->digitalCategoryRepository->first($where);
 

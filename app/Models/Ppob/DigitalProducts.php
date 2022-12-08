@@ -9,7 +9,7 @@ class DigitalProducts extends Model
 {
     use HasFactory;
 
-    protected $table = 'ppob.digital_products';
+    protected $table = 'ppob.products';
     protected  $primaryKey = 'id';
     public $timestamps = false;
 

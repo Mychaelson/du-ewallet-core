@@ -15,8 +15,8 @@ class DigitalCategoryRepository
 	public function first($where)
 	{
 		$Categories = $this->Categories
-		->join('ppob.digital_products', 'ppob.digital_products.category_id', '=', 'digital_categories.id')
-		->where($where)->orderBy('digital_products.order')->limit(1)->get();
+		->join('ppob.products', 'ppob.products.category_id', '=', 'digital_categories.id')
+		->where($where)->orderBy('products.order')->limit(1)->get();
 
 		return $Categories;
 	}

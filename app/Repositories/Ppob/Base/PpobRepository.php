@@ -85,7 +85,7 @@ class PpobRepository
 
     public function getProduct($code)
     {
-        $data = DB::table('ppob.digital_products')->where('code',$code)->first();
+        $data = DB::table('ppob.products')->where('code',$code)->first();
 
         return $data;
     }
