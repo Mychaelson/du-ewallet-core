@@ -1,0 +1,51 @@
+services:  
+  #PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: digitalocean.com/php
+    container_name: du-core-v2
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: du_core_v2
+      SERVICE_TAGS: du_core_v2
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - du-core-v2
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:80"
+      # - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - du-core-v2
+
+  # redis:
+  #   image: 'bitnami/redis:latest'
+  #   environment:
+  #     - REDIS_PORT_NUMBER=7979
+  #     - REDIS_PASSWORD=oidj2foi29fjidfowjo1j1fj10fodkj29f928
+  #   ports:
+  #   - '7979:7979'
+  #   networks:
+  #     - du-core-v2
+
+#Docker Networks
+networks:
+  du-core-v2:
+    driver: bridge
