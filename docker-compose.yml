@@ -18,7 +18,7 @@ services:
     networks:
       - du-core-v2
     extra_hosts:
-      - "host.docker.internal:172.17.0.1"
+      - "host.docker.internal:178.128.80.251"
 
   #Nginx Service
   webserver:
@@ -35,15 +35,15 @@ services:
     networks:
       - du-core-v2
 
-  # redis:
-  #   image: 'bitnami/redis:latest'
-  #   environment:
-  #     - REDIS_PORT_NUMBER=7979
-  #     - REDIS_PASSWORD=oidj2foi29fjidfowjo1j1fj10fodkj29f928
-  #   ports:
-  #   - '7979:7979'
-  #   networks:
-  #     - du-core-v2
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - REDIS_PORT_NUMBER=7979
+      - REDIS_PASSWORD=oidj2foi29fjidfowjo1j1fj10fodkj29f928
+    ports:
+    - '7979:7979'
+    networks:
+      - du-core-v2
 
 #Docker Networks
 networks:
