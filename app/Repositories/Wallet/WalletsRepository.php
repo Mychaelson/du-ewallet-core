@@ -118,7 +118,8 @@ class WalletsRepository
                             'wallet.wallet_limits.transaction_monthly',
                             'wallet.wallet_limits.free_withdraw',
                             'wallet.wallet_limits.max_group_transfer',
-                            'wallet.wallet_limits.max_group_withdraw'
+                            'wallet.wallet_limits.max_group_withdraw',
+                            'wallet.wallets.balance'
                         )
                         ->selectRaw(
                             '
@@ -141,7 +142,8 @@ class WalletsRepository
                             'wallet.wallet_limits.transaction_monthly',
                             'wallet.wallet_limits.free_withdraw',
                             'wallet.wallet_limits.max_group_transfer',
-                            'wallet.wallet_limits.max_group_withdraw'
+                            'wallet.wallet_limits.max_group_withdraw',
+                            'wallet.wallets.balance'
                         )
                         ->first();
 
