@@ -3,7 +3,9 @@
 return [
     'field-required' => 'The :field field is required.',
     'field-number' => 'The :field must be a number.', 
-    'field-digit' => 'The :field must be :number digits.', 
+    'field-digit' => 'The :field must be :number digits.',
+    'field-length' => 'The :field must be :number in length.',
+    'field-symbol' => 'The :field may only contain letters and number.',
     'sms-sent' => 'We\'ve sent an otp code to :phone',
     'otp-invalid' => 'Invalid OTP',
     'otp-expired' => 'Expired OTP',

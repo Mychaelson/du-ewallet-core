@@ -268,10 +268,12 @@ class UserController extends Controller
                 'id.required' => trans('messages.field-required', ['field' => 'id']),
             ];
         } elseif ($data['action'] == 'validatenickname') {
-            $rules = ['nickname' => 'required|min:4'];
+            $rules = ['nickname' => 'required|min:4|max:15|alpha_dash'];
             $ruleMessage = [
                 'nickname.required' => trans('messages.field-required', ['field' => 'nickname']),
-                'nickname.digits' => trans('messages.field-digit', ['field' => 'nickname', 'number'=>'4']),
+                'nickname.min' => trans('messages.field-length', ['field' => 'nickname', 'number'=>'4-15']),
+                'nickname.max' => trans('messages.field-length', ['field' => 'nickname', 'number'=>'4-15']),
+                'nickname.alpha_dash' => trans('messages.field-symbol', ['field' => 'nickname'])
             ];
         } elseif ($data['action'] == 'search') {
             $rules = ['username' => 'required|min:4'];
@@ -363,7 +365,7 @@ class UserController extends Controller
             }
         }
 
-        $validator = Validator::make($content, $rules);
+        $validator = Validator::make($content, $rules, $ruleMessage);
         if ($validator->fails()) {
             $data['response']['success'] = false;
             $data['response']['response_code'] = 422;
