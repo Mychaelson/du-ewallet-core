@@ -32,21 +32,24 @@ class RajaBiller
       if (!isset($inquiry)) {
           return [
               'status' => false,
-              'message' => trans('error.inquiry_failed')
+              'message' => trans('error.inquiry_failed'),
+              'data' => []
           ];
       }
 
       if (isset($inquiry['error'])) {
           return [
               'status' => false,
-              'message' => $inquiry['error']
+              'message' => $inquiry['error'],
+              'data' => $inquiry
           ];
       }
 
       if ($inquiry['STATUS'] != '00') {
         return [
             'status' => false,
-            'message' => $inquiry['KET']
+            'message' => $inquiry['KET'],
+            'data' => $inquiry
         ];
       }
 
@@ -150,8 +153,7 @@ class RajaBiller
         'kode_produk' => $request['product_code'],
         'ref1' => $request['reff_number'],
       );
-
-      dd($param);
+      
       $inquiry = $this->callRajaBiller($param);
 
       return $this->checkStatus($inquiry);
