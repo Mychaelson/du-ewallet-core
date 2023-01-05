@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notif.notifications', function (Blueprint $table) {
-            $table->string('id', 50)->primary();
+            $table->id();
             $table->string('type', 50);
             $table->integer('notifiable_id');
             $table->string('notifiable_type', 50);
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists('notif.notifications');
     }
 };

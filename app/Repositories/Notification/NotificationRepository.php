@@ -101,4 +101,20 @@ class NotificationRepository
         // FCM response
         return $result;   
     }
+
+		public function createNotification ($notifInfo){ 
+			$data = [
+				"type" => $notifInfo['type'],
+				"notifiable_id" => $notifInfo['user_id'],
+				'notifiable_type' => $notifInfo['notifiable_type'],
+				'data' => $notifInfo['data'],
+				'category' => $notifInfo['category'],
+				'icon' => $notifInfo['icon'],
+				'merchant_id' => $notifInfo['merchant_id']
+			];
+
+			$res = $this->notifications->insert($data);
+
+			return $res;
+		}
 }

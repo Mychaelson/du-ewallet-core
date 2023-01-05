@@ -76,6 +76,36 @@ class BillRepository
 
 			return $id;
     }
+	
+	public function createBill($order_id)
+    {
+        $trans = $this->ppobRepository->getDetailByOrder_id($order_id);
+
+        if (!$trans) return;
+
+        $name = json_decode($trans->product_snap)->name ?? '';
+        $invoice = [
+            'description' => $name,
+            'invoice' => $trans->order_id,
+            'amount' => $trans->total,
+            'expires' => gmdate('Y-m-d H:i:s', strtotime('+2 hours')),
+            'user' => $trans->user_id,
+            'merchant' => 1,
+            'wallet' => 'local',
+            'currency' => 'IDR',
+            'status' => 2,
+            'callback' => '',
+            'reason' => '',
+            'paid' => 0,
+            'cashback' => 0.00,
+						'created_at' => now(),
+						'updated_at' => now()
+        ];
+
+			$id = $this->bill->insertGetId($invoice);
+
+			return $id;
+    }
 
 	public function createTransactionBill ($invoice_no, $namespace){
 		$trans = $this->ppobRepository->getTransactionByInvoiceNo($invoice_no);
