@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('payment_service', 100);
             $table->string('payment_method', 50)->nullable();
             $table->string('payment_data', 1050)->nullable();
+            $table->json('bill_data', 1050)->nullable();
             $table->integer('reff_method_id')->nullable();
             $table->string('expires', 50);
             $table->timestamps();

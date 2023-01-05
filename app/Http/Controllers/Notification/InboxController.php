@@ -91,7 +91,7 @@ class InboxController extends Controller
   public function inboxCategory($category, Request $request)
   {
     $where = [
-      'category' => $request->category,
+      'category' => $category,
       'notifiable_id' => $this->userId
     ];
     $perpage = $request->per_page; // optional

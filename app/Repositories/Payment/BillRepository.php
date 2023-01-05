@@ -77,46 +77,46 @@ class BillRepository
 			return $id;
     }
 
-		public function createTransactionBill ($invoice_no, $namespace){
-			$trans = $this->ppobRepository->getTransactionByInvoiceNo($invoice_no);
+	public function createTransactionBill ($invoice_no, $namespace){
+		$trans = $this->ppobRepository->getTransactionByInvoiceNo($invoice_no);
 
-			if (!isset($trans)) {
-				return;
-			}
-
-			$product = $this->ppobRepository->findProductInfo($trans->product_code);
-
-			if (!isset($product)) {
-				return;
-			}
-
-			$invoice = [
-				'description' => $product->name,
-				'invoice' => $trans->invoice_no,
-				'amount' => $trans->total,
-				'expires' => Carbon::now()->addHours(2),
-				'user' => $trans->user_id,
-				'merchant' => 1,
-				'wallet' => 'local',
-				'currency' => 'IDR',
-				'status' => 2,
-				'callback' => '',
-				'reason' => '',
-				'paid' => 0,
-				'cashback' => 0.00,
-				'payment_service' => $namespace,
-				'created_at' => now(),
-				'updated_at' => now()
-			];
-
-			$id = $this->bill->insertGetId($invoice);
-
-			return $id;
+		if (!isset($trans)) {
+			return;
 		}
 
-		public function getBill($invoice_no){
-			$data = $this->bill->where('invoice', $invoice_no)->first();
+		$product = $this->ppobRepository->findProductInfo($trans->product_code);
 
-			return $data;
+		if (!isset($product)) {
+			return;
 		}
+
+		$invoice = [
+			'description' => $product->name,
+			'invoice' => $trans->invoice_no,
+			'amount' => $trans->total,
+			'expires' => Carbon::now()->addHours(2),
+			'user' => $trans->user_id,
+			'merchant' => 1,
+			'wallet' => 'local',
+			'currency' => 'IDR',
+			'status' => 2,
+			'callback' => '',
+			'reason' => '',
+			'paid' => 0,
+			'cashback' => 0.00,
+			'payment_service' => $namespace,
+			'created_at' => now(),
+			'updated_at' => now()
+		];
+
+		$id = $this->bill->insertGetId($invoice);
+
+		return $id;
+	}
+
+	public function getBill($invoice_no){
+		$data = $this->bill->where('invoice', $invoice_no)->first();
+
+		return $data;
+	}
 }
