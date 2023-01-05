@@ -38,6 +38,10 @@ class NotificationRepository
 
 		$notifications = $notifications->orderBy('created_at', 'asc')->paginate($perpage);
 
+		foreach ($notifications as $notif) {
+			$notif->is_read = $notif->read_at ? true : false;
+		}
+
 		return $notifications;
 	}
 

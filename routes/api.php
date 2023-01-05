@@ -342,5 +342,11 @@ Route::namespace('\App\Http\Controllers\Ppob')->group(function () {
     });
 });
 
-Route::post('/merchant/request-bill', 'Payment\PaymentController@billMerchant');
+Route::namespace('\App\Http\Controllers\Merchant')->group(function () {
+    Route::prefix('merchant')->group(function () {
+        Route::post('/request-bill', 'MerchantController@createBill');
+    });
+});
+
+
 

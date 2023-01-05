@@ -60,7 +60,7 @@ class BillRepository
             'amount' => $trans->total,
             'expires' => gmdate('Y-m-d H:i:s', strtotime('+2 hours')),
             'user' => $trans->user_id,
-            'merchant' => 1,
+            'merchant' => 0,
             'wallet' => 'local',
             'currency' => 'IDR',
             'status' => 2,
@@ -76,21 +76,16 @@ class BillRepository
 
 			return $id;
     }
-	
-	public function createBill($order_id)
+
+	public function merchantBill()
     {
-        $trans = $this->ppobRepository->getDetailByOrder_id($order_id);
-
-        if (!$trans) return;
-
-        $name = json_decode($trans->product_snap)->name ?? '';
-        $invoice = [
+        /* $invoice = [
             'description' => $name,
             'invoice' => $trans->order_id,
             'amount' => $trans->total,
             'expires' => gmdate('Y-m-d H:i:s', strtotime('+2 hours')),
             'user' => $trans->user_id,
-            'merchant' => 1,
+            'merchant' => 0,
             'wallet' => 'local',
             'currency' => 'IDR',
             'status' => 2,
@@ -104,7 +99,7 @@ class BillRepository
 
 			$id = $this->bill->insertGetId($invoice);
 
-			return $id;
+			return $id; */
     }
 
 	public function createTransactionBill ($invoice_no, $namespace){
@@ -126,7 +121,7 @@ class BillRepository
 			'amount' => $trans->total,
 			'expires' => Carbon::now()->addHours(2),
 			'user' => $trans->user_id,
-			'merchant' => 1,
+			'merchant' => 0,
 			'wallet' => 'local',
 			'currency' => 'IDR',
 			'status' => 2,
@@ -135,6 +130,33 @@ class BillRepository
 			'paid' => 0,
 			'cashback' => 0.00,
 			'payment_service' => $namespace,
+			'created_at' => now(),
+			'updated_at' => now()
+		];
+
+		$id = $this->bill->insertGetId($invoice);
+
+		return $id;
+	}
+	
+	public function createMerchantBill ($data){		
+
+		$invoice = [
+			'description' => $data['description'],
+			'invoice' => $data['invoice'],
+			'amount' => $data['amount'],
+			'expires' => Carbon::now()->addHours(2),
+			'user' => $data['customer'],
+			'merchant' => $data['merchant'],
+			'wallet' => 'local',
+			'currency' => 'IDR',
+			'status' => 2,
+			'callback' => '',
+			'reason' => '',
+			'paid' => 0,
+			'cashback' => 0.00,
+			'payment_service' => $data['namespace'],
+			'bill_data' => json_encode($data['bill_data']),
 			'created_at' => now(),
 			'updated_at' => now()
 		];
