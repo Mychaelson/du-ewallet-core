@@ -55,7 +55,7 @@ return new class extends Migration
             $table->string('device_token', 250)->nullable();
             $table->string('onesignal_id', 250)->nullable();
             $table->string('remember_token', 250)->nullable();
-            $table->string('merchant_token', 250)->nullable();
+            $table->string('api_token', 250)->nullable();
             $table->string('nfc_device', 250)->nullable();
             $table->string('nfc_identify', 250)->nullable();
             $table->string('main_device', 250)->nullable();
