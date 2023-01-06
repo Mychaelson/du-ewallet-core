@@ -171,4 +171,11 @@ class BillRepository
 
 		return $data;
 	}
+
+	public function getListBillByStatus ($user_id, $status)
+	{
+		$data = $this->bill->where('user', $user_id)->where('status', $status)->get();
+
+		return $data;
+	}
 }

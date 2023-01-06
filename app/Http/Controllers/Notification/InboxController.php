@@ -6,19 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Notification\NotificationRepository;
 use App\Macros\Notifications\SendMailMacro;
+use App\Repositories\Payment\BillRepository;
 
 class InboxController extends Controller
 {
   private $userId;
   private $notificationRepository;
+  private $billRepository;
 
 
   function __construct(
     NotificationRepository $notificationRepository,
-    private SendMailMacro $sendMail
+    private SendMailMacro $sendMail,
+    BillRepository $billRepository
   ) {
     $this->userId = auth('api')->id();
     $this->notificationRepository = $notificationRepository;
+    $this->billRepository = $billRepository;
   }
 
   public function inbox(Request $request)
@@ -88,18 +92,18 @@ class InboxController extends Controller
     return $this->response($groups);
   }
 
-  public function inboxCategory($category, Request $request)
-  {
-    $where = [
-      'category' => $category,
-      'notifiable_id' => $this->userId
-    ];
-    $perpage = $request->per_page; // optional
+  // public function inboxCategory($category, Request $request)
+  // {
+  //   $where = [
+  //     'category' => $category,
+  //     'notifiable_id' => $this->userId
+  //   ];
+  //   $perpage = $request->per_page; // optional
 
-    $notifications = $this->notificationRepository->getPaginate($where, $perpage);
+  //   $notifications = $this->notificationRepository->getPaginate($where, $perpage);
 
-    return $this->response($notifications);
-  }
+  //   return $this->response($notifications);
+  // }
 
   public function read($id)
   {
@@ -124,5 +128,23 @@ class InboxController extends Controller
     $sendMail = $this->sendMail->handle($request);
 
     return response()->json($sendMail, 200);
+  }
+
+  public function inboxCategory($category, Request $request){
+    if ($category == 'Transaction') {
+      $data = $this->billRepository->getListBillByStatus($this->userId, 2)->toArray();
+
+      $res = [];
+
+      foreach ($data as $val) {
+        if (isset($val['bill_data'])) {
+          $val['bill_data'] = json_decode($val['bill_data']);
+        }
+
+        $res[] = $val;
+      }
+    }
+
+    return $this->response($res);
   }
 }
