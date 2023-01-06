@@ -44,6 +44,11 @@ return [
             'driver' => 'passport',
             'provider' => 'accounts',
         ],
+        'merchant' => [
+            'driver' => 'token',
+            'provider' => 'accounts',
+            'hash' => false,
+        ],
     ],
 
     /*

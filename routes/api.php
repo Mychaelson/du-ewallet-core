@@ -344,11 +344,8 @@ Route::namespace('\App\Http\Controllers\Ppob')->group(function () {
     });
 });
 
-Route::namespace('\App\Http\Controllers\Merchant')->group(function () {
+Route::group(['middleware' => ['auth:merchant'], 'namespace' => '\App\Http\Controllers\Merchant'], function () {
     Route::prefix('merchant')->group(function () {
         Route::post('/request-bill', 'MerchantController@createBill');
     });
 });
-
-
-
