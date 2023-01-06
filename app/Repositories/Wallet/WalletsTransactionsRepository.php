@@ -316,8 +316,8 @@ class WalletsTransactionsRepository
 
         $transactionData = [
             'wallet_id' => $wallet_info->id,
-            'reff_id' => $bill->invoice_no,
-            'amount' => $bill->total,
+            'reff_id' => $bill->invoice,
+            'amount' => $bill->amount,
             'transaction_type' => 'PPOB',
             'status' => 3,
             'label_id' => 1,
@@ -331,7 +331,7 @@ class WalletsTransactionsRepository
         DB::beginTransaction();
         try {
             $transactionInsert = $this->store($transactionData);
-            $updateBalance = $this->walletsRepository->minBalance($wallet_info->id, (double) $bill->total);
+            $updateBalance = $this->walletsRepository->minBalance($wallet_info->id, (double) $bill->amount);
             DB::commit();
         } catch (\Throwable $e) {
             DB::rollBack();

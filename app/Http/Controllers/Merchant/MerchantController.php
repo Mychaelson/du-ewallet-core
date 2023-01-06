@@ -102,4 +102,15 @@ class MerchantController extends Controller
 
         return Response($response['response'])->header('Content-Type', 'application/json'); */
     }
+
+    public function payment ($invoice_no)
+    {
+        return [
+            'status' => true,
+            'message' => 'ok',
+            'data' => [
+                'invoice_no' => $invoice_no
+            ]
+        ];
+    }
 }

@@ -1017,7 +1017,7 @@ class PaymentController extends Controller
         $transaction = $this->ppobRepository->getTransactionByInvoiceNo($billId);
         $bill = $this->billRepository->getBill($billId);
 
-        if (!isset($transaction) || !isset($bill)) {
+        if (!isset($bill)) {
             $response['response']['success'] = false;
             $response['response']['response_code'] = 422;
             $response['response']['message'] = trans('error.data_not_found');
@@ -1025,17 +1025,19 @@ class PaymentController extends Controller
             return Response($response['response'])->header('Content-Type', 'application/json');
         }
 
-        if ($transaction->status != 2) {
-            $response['response']['success'] = false;
-            $response['response']['response_code'] = 422;
-
-            if ($transaction->status == 1) {
-                $response['response']['message'] = 'transaction failed';
-            } elseif ($transaction->status == 3 || $bill->paid == 1) {
-                $response['response']['message'] = 'bill has been paid';
+        if (isset($transaction)) {
+            if ($transaction->status != 2) {
+                $response['response']['success'] = false;
+                $response['response']['response_code'] = 422;
+    
+                if ($transaction->status == 1) {
+                    $response['response']['message'] = 'transaction failed';
+                } elseif ($transaction->status == 3 || $bill->paid == 1) {
+                    $response['response']['message'] = 'bill has been paid';
+                }
+    
+                return Response($response['response'])->header('Content-Type', 'application/json');
             }
-
-            return Response($response['response'])->header('Content-Type', 'application/json');
         }
 
         if ($bill->expires < now()) {
@@ -1049,7 +1051,7 @@ class PaymentController extends Controller
         $method = $request->method;
 
         if ($method == "wallet") {
-            $result = $this->createPaymentWallet($transaction, (object) $request->data);
+            $result = $this->createPaymentWallet($bill, (object) $request->data);
         } elseif ($method == "card") {
             // $result = $this->createPaymentCard($transaction, (object)$request->data);
             $result = null;
@@ -1090,7 +1092,7 @@ class PaymentController extends Controller
         $transactionInfo = null;
 
         if ($method == 'wallet') {
-            $transactionInfo = $this->walletsTransactionsRepository->addTransactionAndUpdateBalance($transaction, $paymentMethodInfo);
+            $transactionInfo = $this->walletsTransactionsRepository->addTransactionAndUpdateBalance($bill, $paymentMethodInfo);
         } elseif ($method == 'card') {
             // call card repo
         }
@@ -1133,7 +1135,7 @@ class PaymentController extends Controller
             ];
         }
 
-        if ( $wallet->balance < $bill->total ) {
+        if ( $wallet->balance < $bill->amount ) {
             return [
                 'status' => false,
                 'message' => trans('messages.insufficient-wallet-balance')
@@ -1167,5 +1169,29 @@ class PaymentController extends Controller
 
         $updateBill = $this->billRepository->update(['invoice' => $invoice_no], $bill);
         $updateTrans = $this->ppobRepository->updateTransactionByInvoice( $invoice_no, $transaction);
+    }
+
+    public function getBillData ($billId, Request $request){
+        $response = init_transaction_data($request);
+        $data = $this->checkBill($billId);
+
+        if (!isset($data)) {
+            $response['response']['message'] = trans('messages.transaction-not-found');
+            $response['response']['success'] = false;
+            $response['response']['response_code'] = 422;
+
+            return Response($response['response'])->header('Content-Type', 'application/json');
+        } 
+
+        if (isset($data->bill_data)) {
+            $data->bill_data = json_decode($data->bill_data);
+        }
+
+        $response['response']['success'] = true;
+        $response['response']['response_code'] = 200;
+        $response['response']['message'] = trans('messages.bill-found');
+        $response['response']['data'] = $data ?? [];
+
+        return Response($response['response'])->header('Content-Type', 'application/json');
     }
 }

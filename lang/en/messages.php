@@ -101,5 +101,6 @@ return [
     'inquiry-success' => 'Inquiry for :product success, proceed to payment',
     'payment-method-found' => 'List payment method found',
     'insufficient-wallet-balance' => 'Insufficient wallet balance to do this transaction',
-    'transaction-expired' => 'Transaction Expired'
+    'transaction-expired' => 'Transaction Expired',
+    'bill-found' => 'Bill found'
 ];

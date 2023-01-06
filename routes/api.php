@@ -177,6 +177,8 @@ Route::middleware(['auth:api'])->group(function () {
         Route::get('/{billId}/payment/{paymentId}', 'Payment\PaymentController@billPayment');
         Route::get('/{billId}/method', 'Payment\PaymentController@getPaymentMethod');
         Route::POST('/{billId}/payment', 'Payment\PaymentController@payment');
+
+        Route::get('/{billId}/bill-info', 'Payment\PaymentController@getBillData');
     });
 
     // cart - onprogress
