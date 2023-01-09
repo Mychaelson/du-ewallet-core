@@ -148,13 +148,6 @@ class InboxController extends Controller
     return $this->response($res);
   }
 
-  public function inboxCategoryV2($category, Request $request)
-  {
-    $category = $this->notificationRepository->getInboxByIdOrCategory($category);
-
-    dd($category);
-  }
-
   public function inbox (Request $request) {
     $response = init_transaction_data($request);
     $inboxCategories = $this->notificationRepository->getInboxCategory();

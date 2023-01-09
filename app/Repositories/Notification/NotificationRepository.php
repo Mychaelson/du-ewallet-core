@@ -123,17 +123,4 @@ class NotificationRepository
 
 			return $res;
 		}
-
-		public function getInboxCategory (){
-			$res = $this->notificationCategory->get();
-
-			return $res;
-		}
-
-		public function getInboxByIdOrCategory($id){
-			// dd($id);
-			$res = $this->notificationCategory->where('id', $id)->orWhere('category', $id)->first();
-
-			return $res;
-		}
 }

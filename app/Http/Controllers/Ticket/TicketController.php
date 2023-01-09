@@ -363,4 +363,13 @@ class TicketController extends Controller
         return response()->json($response,200);
 
     }
+
+    public function getCustomerCare(){
+        $data = array('Ticket Saya', 'Pusat Bantuan');
+        $response['success'] = true;
+        $response['response_code'] = 200;
+        $response['data'] = $data;
+
+        return response()->json($response,200);
+    }
 }

@@ -89,6 +89,14 @@ Route::middleware(['auth:api'])->group(function () {
             Route::get('/', 'getTicketCategories');
             Route::get('/{id}', 'getTicketCategory');
         });
+    
+    // customer care
+    Route::namespace('Ticket')
+        ->controller(TicketController::class)
+        ->prefix('customer-care')
+        ->group(function () {
+            Route::get('/', 'getCustomerCare');
+        });
 
     // connects
     Route::namespace('Connect')
@@ -153,8 +161,7 @@ Route::middleware(['auth:api'])->group(function () {
         'prefix' => 'notification',
     ], function () {
         Route::get('/inbox', 'Notification\InboxController@inbox');
-        // Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategory');
-        Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategoryV2');
+        Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategory');
         Route::get('/{id}', 'Notification\InboxController@read');
     });
 
