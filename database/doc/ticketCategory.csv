@@ -1,0 +1,68 @@
+id,name,parent,scope,tts,priority,activity,status
+1,Auth Prolems,0,1,3600,1,[NULL],0
+2,KYC,0,1,3600,1,[NULL],0
+3,Purchase,0,1,3600,1,[NULL],0
+4,Top-UP,0,1,3600,1,[NULL],0
+5,Transfer,0,1,3600,1,[NULL],0
+6,Voucher,0,1,3600,1,[NULL],0
+7,User,0,1,3600,1,[NULL],0
+8,Transaksi,0,1,3600,1,[NULL],0
+9,Promosi,0,1,3600,1,[NULL],0
+10,Don't get OTP,1,1,3600,1,[NULL],1
+11,Enter OTP wrong Code,1,1,3600,1,[NULL],1
+12,Can not Register,1,1,3600,1,[NULL],1
+13,Email tidak dapat digunakan,1,1,3600,1,[NULL],1
+14,Tidak dapat submit KYC,2,1,3600,1,[NULL],1
+15,KYC selalu ditolak,2,1,3600,1,[NULL],1
+16,"Pembayaran berhasil, pulsa tidak masuk",3,1,3600,1,[NULL],1
+17,"Pembayaran berhasil, voucher game tidak masuk",3,1,3600,1,[NULL],1
+18,"Pembayaran berhasil, ...",3,1,3600,1,[NULL],1
+19,"Pembayaran gagal, karena limit transaksi",3,1,3600,1,[NULL],1
+20,Sudah transfer tidak masuk jadi saldo nusapay,4,1,3600,1,[NULL],1
+21,Tidak dapat menemukan akun,5,1,3600,1,[NULL],1
+22,"tidak dapat mengirimkan saldo, karena limit habis",5,1,3600,1,[NULL],1
+23,Tidak dapat melakukan pembuatan voucher,6,1,3600,1,[NULL],1
+24,Tidak dapat melakukan redeem voucher,6,1,3600,1,[NULL],1
+25,Lupa kode pattern,7,1,3600,1,[NULL],1
+26,Lupa kode PIN,7,1,3600,1,[NULL],1
+27,Pengguna Ganti nomer telepon,7,1,3600,1,[NULL],1
+28,Pengguna Ganti email,7,1,3600,1,[NULL],1
+29,Tarik data transaksi dari awal penggunaan,8,1,3600,1,[NULL],1
+30,Di informasikan mendapat Cashback tapi tidak dapat cashback,9,1,3600,1,[NULL],1
+31,Nusaku,0,1,1800,2,nusaku,0
+32,Purchase,0,1,1800,2,purchase,0
+33,Misc,0,1,1800,2,misc,0
+34,Top Up Problem,31,2,10800,3,nusaku-topup,1
+35,Bank Transfer Problem,31,1,10800,3,nusaku-bank-transfer,1
+36,Doesn't Get Cashback,32,2,7200,2,purchase-with-promo,1
+37,Purchase PPOB,32,1,3600,3,purchase-ppob,1
+38,Can't link with Google Account,33,1,3600,1,misc-google-account,1
+39,Can't link with Facebook Account,33,1,3600,1,misc-facebook-account,1
+40,Forget PIN Transaction,33,1,7200,2,misc-forgot-pin,1
+46,Transaksi,0,1,7200,3,,1
+50,Pembelian Pulsa HP,46,1,7200,3,,1
+53,Pembelian Pulsa Listrik,46,1,7200,3,,1
+60,Pembelian Voucher Game,46,1,7200,3,,1
+67,Pembayaran Tagihan Cicilan Multi Finance,46,1,7200,3,,1
+74,Pembayaran Tagihan BPJS Kesehatan,46,1,7200,3,,1
+78,"Pembelian atau Pembayaran Produk, Tagihan Telkom",46,1,7200,3,,1
+85,Pembayaran Tagihan Air,46,1,7200,3,,1
+92,Pembayaran Tagihan Selular Pasca Bayar,46,1,7200,3,,1
+95,"Pembayaran atau Pembelian Produk, Tagihan Provider TV Kabel",46,1,7200,3,,1
+99,Pembayaran Tagihan Asuransi,46,1,7200,3,,1
+106,Pembayaran Kepada Mitra Yamisok Pay,46,1,7200,3,,1
+113,Pembelian Emoney,46,1,7200,3,,1
+116,Balance,0,1,7200,3,Balance,1
+123,Transfer Sesama Pengguna Yamisok Pay,116,1,7200,3,,1
+130,Top Up atau Isi Saldo,116,1,7200,3,,1
+134,Transfer Bank atau  Pencairan Dana,116,1,7200,3,,1
+141,Y-Voucher,116,1,7200,2,,1
+144,Misc,0,1,7200,2,,1
+151,Misc,0,1,7200,2,,0
+155,Lupa PIN,144,2,7200,2,,1
+162,Upgrade Account,144,3,7200,2,,1
+169,Bonus,46,1,7200,2,,1
+176,Point,46,1,7200,2,,1
+183,Registrasi,144,4,7200,1,,1
+190,Riwayat Transaksi,116,1,7200,1,,1
+197,Auntentikasi ,144,4,7200,1,,1

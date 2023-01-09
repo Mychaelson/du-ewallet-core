@@ -51,7 +51,8 @@ class DatabaseSeeder extends Seeder
             Ppob\DigitalProductServiceSeederV2::class,
             Accounts\AccountsBankInstructionSeeder::class,
             Accounts\AccountsBankInstructionLinesSeeder::class,
-            Notifications\NotifCategorySeeder::class
+            Notifications\NotifCategorySeeder::class,
+            Ticket\TicketCategorySeeder::class
         ]);
 
         Model::reguard();
