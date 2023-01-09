@@ -17,7 +17,7 @@ class BillRepository
 
 	public function search($where)
 	{
-		$bill = $this->bill->where($where)->get();
+		$bill = $this->bill->where('expires', '>', date('Y-m-d mm:dd'))->where($where)->orderBy('updated_at', 'desc')->get();
 
 		return $bill;
 	}
@@ -174,7 +174,17 @@ class BillRepository
 
 	public function getListBillByStatus ($user_id, $status)
 	{
-		$data = $this->bill->where('user', $user_id)->where('status', $status)->get();
+		$data = $this->bill
+					->select('payment.bill.*')
+					->selectRaw(
+						'(case when payment.bill.merchant = 0
+							then \'Dupay\'
+							else accounts.users.name
+							end
+						)as merchant_name'
+					)
+					->leftJoin('accounts.users', 'accounts.users.id', '=', 'payment.bill.merchant')
+					->where('payment.bill.user', $user_id)->where('payment.bill.status', $status)->get();
 
 		return $data;
 	}

@@ -25,72 +25,72 @@ class InboxController extends Controller
     $this->billRepository = $billRepository;
   }
 
-  public function inbox(Request $request)
-  {
-    $where = ['notifiable_id' => $this->userId];
-    $selectRaw = 'SUM(IF(read_at is NULL, 1,0)) as unread, category';
+  // public function inbox(Request $request)
+  // {
+  //   $where = ['notifiable_id' => $this->userId];
+  //   $selectRaw = 'SUM(IF(read_at is NULL, 1,0)) as unread, category';
 
-    $notifications = $this->notificationRepository->getGroupByCategory($where, $selectRaw, $request->q);
+  //   $notifications = $this->notificationRepository->getGroupByCategory($where, $selectRaw, $request->q);
 
-    if (isset($request->category)) {
-      $where = [
-        'category' => $request->category,
-        'notifiable_id' => $this->userId
-      ];
-      $perpage = $request->per_page;
+  //   if (isset($request->category)) {
+  //     $where = [
+  //       'category' => $request->category,
+  //       'notifiable_id' => $this->userId
+  //     ];
+  //     $perpage = $request->per_page;
 
-      $notifications = $this->notificationRepository->getPaginate($where, $request->q, $perpage);
-      return $this->response($notifications);
-    }
+  //     $notifications = $this->notificationRepository->getPaginate($where, $request->q, $perpage);
+  //     return $this->response($notifications);
+  //   }
 
-    $groups = [
-      [
-        'category' => 'Customer Care',
-        'icon' => asset('Logo dupay light.png'),
-        'last_content' => 'help',
-        'last_updated' => date('Y-m-d H:i:s'),
-        'last_activity' => 'last_activity',
-        'activity' => 'ticket_support',
-        'created_at' => date('Y-m-d H:i:s'),
-        'unread_count' => 0
-      ],
-      [
-        'category' => 'Transaction',
-        'icon' => 'http://cdn-apps.nusapay.co.id/nhWJH60j0DgvNsKXuaRDCYjkxKPLF2.png',
-        'last_content' => 'New Transaction',
-        'last_updated' => date('Y-m-d H:i:s'),
-        'last_activity' => 'transaction_activity',
-        'activity' => 'transaction_invoice',
-        'created_at' => date('Y-m-d H:i:s'),
-        'unread_count' => (int) 0
-      ],
-    ];
+  //   $groups = [
+  //     [
+  //       'category' => 'Customer Care',
+  //       'icon' => asset('Logo dupay light.png'),
+  //       'last_content' => 'help',
+  //       'last_updated' => date('Y-m-d H:i:s'),
+  //       'last_activity' => 'last_activity',
+  //       'activity' => 'ticket_support',
+  //       'created_at' => date('Y-m-d H:i:s'),
+  //       'unread_count' => 0
+  //     ],
+  //     [
+  //       'category' => 'Transaction',
+  //       'icon' => 'http://cdn-apps.nusapay.co.id/nhWJH60j0DgvNsKXuaRDCYjkxKPLF2.png',
+  //       'last_content' => 'New Transaction',
+  //       'last_updated' => date('Y-m-d H:i:s'),
+  //       'last_activity' => 'transaction_activity',
+  //       'activity' => 'transaction_invoice',
+  //       'created_at' => date('Y-m-d H:i:s'),
+  //       'unread_count' => (int) 0
+  //     ],
+  //   ];
 
-    foreach ($notifications as $cat => $unread) {
-      $where = [
-        'category' => $request->category,
-        'notifiable_id' => $this->userId
-      ];
+  //   foreach ($notifications as $cat => $unread) {
+  //     $where = [
+  //       'category' => $request->category,
+  //       'notifiable_id' => $this->userId
+  //     ];
 
-      $lastNotif = $this->notificationRepository->getLast($where);
-      if ($lastNotif) {
-        $data = (array)json_decode($lastNotif->data);
-        $groups[] = [
-          'category' => $cat,
-          'icon' => $lastNotif->icon ?? 'http://cdn-apps.nusapay.co.id/I3OXSmlYllpI9pDMujJdCi6mEtzlCi.png',
-          'last_content' => $data['content'] ?? '',
-          'last_updated' => $lastNotif->created_at,
-          'last_activity' => $data['activity'] ?? '',
-          'activity' => 'list_inbox',
-          'created_at' => $lastNotif->created_at,
-          'unread_count' => (int) $unread,
-        ];
-      }
-    }
+  //     $lastNotif = $this->notificationRepository->getLast($where);
+  //     if ($lastNotif) {
+  //       $data = (array)json_decode($lastNotif->data);
+  //       $groups[] = [
+  //         'category' => $cat,
+  //         'icon' => $lastNotif->icon ?? 'http://cdn-apps.nusapay.co.id/I3OXSmlYllpI9pDMujJdCi6mEtzlCi.png',
+  //         'last_content' => $data['content'] ?? '',
+  //         'last_updated' => $lastNotif->created_at,
+  //         'last_activity' => $data['activity'] ?? '',
+  //         'activity' => 'list_inbox',
+  //         'created_at' => $lastNotif->created_at,
+  //         'unread_count' => (int) $unread,
+  //       ];
+  //     }
+  //   }
 
-    $groups = collect($groups)->sortByDesc('created_at')->values();
-    return $this->response($groups);
-  }
+  //   $groups = collect($groups)->sortByDesc('created_at')->values();
+  //   return $this->response($groups);
+  // }
 
   // public function inboxCategory($category, Request $request)
   // {
@@ -146,5 +146,28 @@ class InboxController extends Controller
     }
 
     return $this->response($res);
+  }
+
+  public function inboxCategoryV2($category, Request $request)
+  {
+    $category = $this->notificationRepository->getInboxByIdOrCategory($category);
+
+    dd($category);
+  }
+
+  public function inbox (Request $request) {
+    $response = init_transaction_data($request);
+    $inboxCategories = $this->notificationRepository->getInboxCategory();
+
+    foreach ($inboxCategories as $category) {
+      // fetch unread count here
+      // $unreadCount = 
+      $category->unread_count = (int) 0;
+    }
+
+    $response['response']['data'] = $inboxCategories;
+    $response['response']['message'] = trans('messages.inbox-category-found');
+
+    return Response($response['response'])->header('Content-Type', 'application/json');
   }
 }

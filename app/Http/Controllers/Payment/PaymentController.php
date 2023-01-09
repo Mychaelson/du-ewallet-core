@@ -924,7 +924,7 @@ class PaymentController extends Controller
     public function getPaymentMethod ($billId, Request $request)
     {
         $response = init_transaction_data($request);
-        $bill = $this->ppobRepository->getTransactionByInvoiceNo($billId);
+        /* $bill = $this->ppobRepository->getTransactionByInvoiceNo($billId);
 
         if (!isset($bill)) {
             $response['response']['success'] = false;
@@ -932,7 +932,7 @@ class PaymentController extends Controller
             $response['response']['message'] = trans('error.data_not_found');
 
             return Response($response['response'])->header('Content-Type', 'application/json');
-        }
+        } */
 
         $result = [];
 
@@ -952,7 +952,7 @@ class PaymentController extends Controller
                 $res['content'] = [];
 
             }else if($method == 'wallet') {
-                $res['content'] = $this->getWallet($bill);
+                $res['content'] = $this->getWallet();
             }
 
             if ($res['content'])
@@ -967,7 +967,7 @@ class PaymentController extends Controller
         return Response($response['response'])->header('Content-Type', 'application/json');
     }
 
-    public function getWallet ($bill)
+    public function getWallet ()
     {
         $result = (object)[
             'wallets' => []
@@ -975,8 +975,10 @@ class PaymentController extends Controller
 
         $wallets = $this->walletsRepository->getWallet();
 
-        $wallets = $wallets->map(function ($wallet) use ($bill) {
-            $wallet->user = ['id' => $bill->user_id];
+        
+
+        $wallets = $wallets->map(function ($wallet) {
+            $wallet->user = ['id' => $this->userId];
             $wallet->type = [
                 'label' => 'E-Money',
                 'value' => 1];

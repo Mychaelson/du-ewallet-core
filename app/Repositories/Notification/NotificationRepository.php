@@ -2,17 +2,19 @@
 
 namespace App\Repositories\Notification;
 
+use App\Models\Notification\NotificationCategory;
 use App\Models\Notification\Notifications;
 use App\Repositories\Accounts\UserInformationsRepository;
 
 class NotificationRepository
 {
-	private $notifications, $userInformationRepository;
+	private $notifications, $userInformationRepository, $notificationCategory;
 
-	function __construct(Notifications $notifications, UserInformationsRepository $userInformationRepository)
+	function __construct(Notifications $notifications, UserInformationsRepository $userInformationRepository, NotificationCategory $notificationCategory)
 	{
 		$this->notifications = $notifications;
 		$this->userInformationRepository = $userInformationRepository;
+		$this->notificationCategory = $notificationCategory;
 	}
 
 	public function getGroupByCategory($where, $selectRaw, $q = null)
@@ -118,6 +120,19 @@ class NotificationRepository
 			];
 
 			$res = $this->notifications->insert($data);
+
+			return $res;
+		}
+
+		public function getInboxCategory (){
+			$res = $this->notificationCategory->get();
+
+			return $res;
+		}
+
+		public function getInboxByIdOrCategory($id){
+			// dd($id);
+			$res = $this->notificationCategory->where('id', $id)->orWhere('category', $id)->first();
 
 			return $res;
 		}

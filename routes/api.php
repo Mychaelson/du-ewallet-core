@@ -153,7 +153,8 @@ Route::middleware(['auth:api'])->group(function () {
         'prefix' => 'notification',
     ], function () {
         Route::get('/inbox', 'Notification\InboxController@inbox');
-        Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategory');
+        // Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategory');
+        Route::get('/inbox/{category}', 'Notification\InboxController@inboxCategoryV2');
         Route::get('/{id}', 'Notification\InboxController@read');
     });
 

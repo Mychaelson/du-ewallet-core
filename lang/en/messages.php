@@ -102,5 +102,6 @@ return [
     'payment-method-found' => 'List payment method found',
     'insufficient-wallet-balance' => 'Insufficient wallet balance to do this transaction',
     'transaction-expired' => 'Transaction Expired',
-    'bill-found' => 'Bill found'
+    'bill-found' => 'Bill found',
+    'inbox-category-found' => 'Inbox category found'
 ];
