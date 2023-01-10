@@ -123,4 +123,10 @@ class NotificationRepository
 
 			return $res;
 		}
+
+		public function getInboxCategory (){
+			$res = $this->notificationCategory->get();
+
+			return $res;
+		}
 }
